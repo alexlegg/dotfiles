@@ -9,6 +9,7 @@ in {
   config = mkIf cfg.enable {
     dotfiles = {
       diff-so-fancy.enable = true;
+      fd.enable = true;
       git.enable = true;
       ripgrep.enable = true;
       zsh.enable = true;
