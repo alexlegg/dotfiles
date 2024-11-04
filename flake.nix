@@ -16,6 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Home manager manages user environment (i.e. dot files).
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Snowfall is the library that opinionates the layout of this repo.
     snowfall-lib = {
         url = "github:snowfallorg/lib";
