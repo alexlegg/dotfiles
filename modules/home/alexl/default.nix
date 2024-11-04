@@ -8,6 +8,7 @@ in {
 
   config = mkIf cfg.enable {
     dotfiles = {
+      zsh.enable = true;
     };
   };
 }
