@@ -73,6 +73,42 @@
         "type": "github"
       }
     },
+    "morlana": {
+      "inputs": {
+        "nix-filter": "nix-filter",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1729339890,
+        "narHash": "sha256-bsJo2HOytazKnsg608X6LXwZ+BiUkemgFs8OBr9VRDo=",
+        "owner": "ryanccn",
+        "repo": "morlana",
+        "rev": "b7628870e394cc91baced64f9849ab4fe1d3030e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ryanccn",
+        "repo": "morlana",
+        "type": "github"
+      }
+    },
+    "nix-filter": {
+      "locked": {
+        "lastModified": 1710156097,
+        "narHash": "sha256-1Wvk8UP7PXdf8bCCaEoMnOT1qe5/Duqgj+rL8sRQsSM=",
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "rev": "3342559a24e85fc164b295c3444e8a139924675b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "nix-filter",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1730531603,
@@ -92,6 +128,7 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "morlana": "morlana",
         "nixpkgs": "nixpkgs",
         "snowfall-lib": "snowfall-lib"
       }
