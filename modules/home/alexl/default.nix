@@ -12,6 +12,7 @@ in {
       fd.enable = true;
       git.enable = true;
       ripgrep.enable = true;
+      tree.enable = true;
       zsh.enable = true;
     };
   };
