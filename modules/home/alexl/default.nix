@@ -8,8 +8,10 @@ in {
 
   config = mkIf cfg.enable {
     dotfiles = {
-      zsh.enable = true;
+      diff-so-fancy.enable = true;
+      git.enable = true;
       ripgrep.enable = true;
+      zsh.enable = true;
     };
   };
 }
