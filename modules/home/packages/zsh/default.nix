@@ -28,11 +28,19 @@ in {
       '';
       initExtra = ''
         # source zsh-vi-mode
-        source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+        # Initialise now (when sourcing) so we can override some keybings for
+        # fzf and fzf-tab.
+        ZVM_INIT_MODE=sourcing
+        source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
         # vim mode
         bindkey -v
+
+        # source fzf
+        # enableZshIntegrations is turned off in fzf so we can order this after
+        # the vim mode plugin.
+        source <(fzf --zsh)
 
         # source fzf-tab
         source ${fzt}/share/fzf-tab/fzf-tab.plugin.zsh
