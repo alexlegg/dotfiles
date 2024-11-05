@@ -8,8 +8,7 @@ in {
 
   config = mkIf cfg.enable {
     dotfiles = {
-      #pam-reattach.enable = true;
-      #zsh.enable = true;
+      pam-reattach.enable = true;
     };
   };
 }
