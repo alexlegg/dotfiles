@@ -16,6 +16,7 @@ in {
       ripgrep.enable = true;
       tree.enable = true;
       zsh.enable = true;
+      wezterm.enable = true;
     };
   };
 }
