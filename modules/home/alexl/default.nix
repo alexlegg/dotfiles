@@ -8,6 +8,8 @@ in {
 
   config = mkIf cfg.enable {
     dotfiles = {
+      alt-tab-macos.enable = true;
+      apps.enable = true;
       diff-so-fancy.enable = true;
       fd.enable = true;
       git.enable = true;
