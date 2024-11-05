@@ -14,6 +14,7 @@ in {
       fd.enable = true;
       fzf.enable = true;
       git.enable = true;
+      rectangle.enable = true;
       ripgrep.enable = true;
       tree.enable = true;
       zsh.enable = true;
