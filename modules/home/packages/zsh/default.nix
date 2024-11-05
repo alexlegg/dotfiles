@@ -28,7 +28,6 @@ in {
       initExtra = ''
         source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-        zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
         # vim mode
         bindkey -v

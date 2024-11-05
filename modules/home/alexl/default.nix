@@ -12,6 +12,7 @@ in {
       apps.enable = true;
       diff-so-fancy.enable = true;
       fd.enable = true;
+      fzf.enable = true;
       git.enable = true;
       ripgrep.enable = true;
       tree.enable = true;
