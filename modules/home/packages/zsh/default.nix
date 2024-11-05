@@ -4,6 +4,7 @@
   fzt = pkgs.zsh-fzf-tab;
   powerlevel10k = pkgs.zsh-powerlevel10k;
   zvm = pkgs.zsh-vi-mode;
+  ztu = pkgs.dotfiles.zsh-title-update;
 in {
   options.dotfiles.zsh = {
     enable = mkEnableOption "zsh";
@@ -26,6 +27,7 @@ in {
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       '';
       initExtra = ''
+        # source zsh-vi-mode
         source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
@@ -34,6 +36,9 @@ in {
 
         # source fzf-tab
         source ${fzt}/share/fzf-tab/fzf-tab.plugin.zsh
+
+        # source zsh-title-update
+        source ${ztu}/share/zsh-title-update/zsh-title-update.plugin.zsh
       '';
       shellAliases = {
         less = "less -i";
