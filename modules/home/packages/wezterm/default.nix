@@ -1,13 +1,21 @@
 { config, lib, pkgs, ... }: let 
   inherit (lib) mkIf mkEnableOption;
   cfg = config.dotfiles.wezterm;
+  dracula-wezterm = pkgs.dotfiles.dracula-wezterm;
 in {
   options.dotfiles.wezterm = {
     enable = mkEnableOption "wezterm";
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ dotfiles.wezterm-binary ];
+    home.packages = with pkgs; [
+      dotfiles.wezterm-binary
+      dotfiles.dracula-wezterm
+    ];
+
+    xdg.configFile."wezterm/colors/dracula.toml" = {
+      source = "${dracula-wezterm}/dracula.toml";
+    };
 
     xdg.configFile."wezterm/wezterm.lua".text = ''
       -- Pull in the wezterm API
