@@ -14,6 +14,7 @@ in {
       fd.enable = true;
       fzf.enable = true;
       git.enable = true;
+      lldb-init.enable = true;
       neovim.enable = true;
       rectangle.enable = true;
       ripgrep.enable = true;
