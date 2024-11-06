@@ -13,9 +13,6 @@ in {
   config = mkIf cfg.enable {
     programs.zsh = {
       enable = true;
-      envExtra = ''
-        export EDITOR=vim
-        '';
       history = {
         append = true;
         ignoreAllDups = true;
@@ -28,11 +25,11 @@ in {
       '';
       initExtra = ''
         # source zsh-vi-mode
-        ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
         # Initialise now (when sourcing) so we can override some keybings for
         # fzf and fzf-tab.
         ZVM_INIT_MODE=sourcing
         source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
         # vim mode
         bindkey -v
@@ -47,6 +44,9 @@ in {
 
         # source zsh-title-update
         source ${ztu}/share/zsh-title-update/zsh-title-update.plugin.zsh
+
+        # Allow comments
+        setopt interactivecomments
       '';
       shellAliases = {
         less = "less -i";

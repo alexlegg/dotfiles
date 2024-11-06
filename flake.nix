@@ -24,8 +24,16 @@
 
     # Snowfall is the library that opinionates the layout of this repo.
     snowfall-lib = {
-        url = "github:snowfallorg/lib";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # NixVim configures neovim from inside nix.
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nix-darwin.follows = "darwin";
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -41,6 +49,14 @@
 
       overlays = with inputs; [
       	morlana.overlays.default
+      ];
+
+      home.modules = with inputs; [
+        nixvim.homeManagerModules.nixvim
+      ];
+
+      systems.modules.darwin = with inputs; [
+        nixvim.nixDarwinModules.nixvim
       ];
 
       snowfall = {
