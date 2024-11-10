@@ -20,6 +20,7 @@ in {
       rectangle.enable = true;
       ripgrep.enable = true;
       tree.enable = true;
+      vscode.enable = true;
       zsh.enable = true;
       wezterm.enable = true;
     };
