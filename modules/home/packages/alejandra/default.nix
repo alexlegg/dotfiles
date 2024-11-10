@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.dotfiles.alejandra;
 in {
@@ -7,6 +12,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ alejandra ];
+    home.packages = with pkgs; [alejandra];
   };
 }

@@ -1,4 +1,10 @@
-{ inputs, lib, stdenvNoCC, zsh }: stdenvNoCC.mkDerivation {
+{
+  inputs,
+  lib,
+  stdenvNoCC,
+  zsh,
+}:
+stdenvNoCC.mkDerivation {
   pname = "zsh-title-update";
   version = "local";
 
@@ -22,4 +28,3 @@
     ];
   };
 }
-

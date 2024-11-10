@@ -1,4 +1,8 @@
-{ config, lib, ... }: let 
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.dotfiles.suites.common;
 in {

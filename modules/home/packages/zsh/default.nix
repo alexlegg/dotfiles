@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }: let
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption mkOption;
   cfg = config.dotfiles.zsh;
   fzt = pkgs.zsh-fzf-tab;
@@ -55,5 +60,4 @@ in {
       };
     };
   };
-
 }

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: let 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.dotfiles.wezterm;
   dracula-wezterm = pkgs.dotfiles.dracula-wezterm;
@@ -84,12 +89,11 @@ in {
 
       -- and finally, return the configuration to wezterm
       return config
-      '';
-      
-      programs.zsh.initExtra = ''
-        path+=('/Applications/Nix User Apps/WezTerm.app/Contents/MacOS')
-        export PATH
-      '';
+    '';
+
+    programs.zsh.initExtra = ''
+      path+=('/Applications/Nix User Apps/WezTerm.app/Contents/MacOS')
+      export PATH
+    '';
   };
 }
-

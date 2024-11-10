@@ -14,12 +14,14 @@
     (n: v: ["--override-input" n v])
     flakes;
 
-  args = [
-    "switch"
-    "--no-confirm"
-    "--flake ${flake}"
-    "--attr darwinConfigurations.$(_get_hostname)"
-  ] ++ (builtins.map (v: "--extra-build-flags='${v}'") (lib.flatten overrides));
+  args =
+    [
+      "switch"
+      "--no-confirm"
+      "--flake ${flake}"
+      "--attr darwinConfigurations.$(_get_hostname)"
+    ]
+    ++ (builtins.map (v: "--extra-build-flags='${v}'") (lib.flatten overrides));
 in
   writeTextFile {
     destination = "/bin/zu";

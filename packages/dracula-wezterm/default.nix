@@ -1,4 +1,10 @@
-{ inputs, lib, stdenvNoCC, zsh }: stdenvNoCC.mkDerivation {
+{
+  inputs,
+  lib,
+  stdenvNoCC,
+  zsh,
+}:
+stdenvNoCC.mkDerivation {
   pname = "dracula-wezterm";
   version = "main";
 
@@ -20,4 +26,3 @@
     ];
   };
 }
-

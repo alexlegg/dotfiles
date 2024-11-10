@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: let 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption mkOption;
   cfg = config.dotfiles.updater;
 in {
@@ -20,7 +25,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ 
+    home.packages = with pkgs; [
       (dotfiles.zu.override {
         inherit (cfg) flake;
         flakes = cfg.overrides;

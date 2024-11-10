@@ -6,7 +6,6 @@
   nix-update-script,
   unzip,
 }:
-
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "alt-tab-macos";
   version = "7.2.0";
@@ -18,7 +17,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   sourceRoot = ".";
 
-  nativeBuildInputs = [ unzip ];
+  nativeBuildInputs = [unzip];
 
   installPhase = ''
     runHook preInstall
@@ -29,7 +28,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "Windows alt-tab on macOS";
@@ -39,6 +38,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       alexl
     ];
     platforms = lib.platforms.darwin;
-    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    sourceProvenance = with lib.sourceTypes; [binaryNativeCode];
   };
 })

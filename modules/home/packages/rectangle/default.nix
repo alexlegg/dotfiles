@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption mkOption;
   cfg = config.dotfiles.rectangle;
 in {
@@ -12,4 +17,3 @@ in {
     ];
   };
 }
-

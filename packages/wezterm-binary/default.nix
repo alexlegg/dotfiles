@@ -1,5 +1,6 @@
 {
-  inputs, fetchzip,
+  inputs,
+  fetchzip,
   stdenvNoCC,
 }:
 stdenvNoCC.mkDerivation rec {
@@ -30,4 +31,3 @@ stdenvNoCC.mkDerivation rec {
     ];
   };
 }
-

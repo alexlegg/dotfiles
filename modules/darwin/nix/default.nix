@@ -1,12 +1,16 @@
-{ config, lib, pkgs, inputs, ... }: let 
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption;
   cfg = config.dotfiles.nix;
 in {
-
   options.dotfiles.nix = {
     enable = mkEnableOption "nix configuration";
   };
-
 
   config = mkIf cfg.enable {
     nix = {
@@ -19,7 +23,7 @@ in {
         http-connections = 50;
         trusted-public-keys = [
         ];
-        trusted-users = [ "root" "alexl" ];
+        trusted-users = ["root" "alexl"];
         warn-dirty = false;
       };
 

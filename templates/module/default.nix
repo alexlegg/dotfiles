@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mkIf mkEnableOption mkOption;
   cfg = config.dotfiles.module;
 in {
@@ -6,7 +11,7 @@ in {
     enable = mkEnableOption "module";
   };
 
-  config = mkIf cfg.enable {
-  };
+  config =
+    mkIf cfg.enable {
+    };
 }
-
