@@ -8,6 +8,7 @@ in {
 
   config = mkIf cfg.enable {
     dotfiles = {
+      alejandra.enable = true;
       alt-tab-macos.enable = true;
       apps.enable = true;
       defaults.enable = true;

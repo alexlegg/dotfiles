@@ -48,7 +48,7 @@
       };
 
       overlays = with inputs; [
-      	morlana.overlays.default
+        morlana.overlays.default
       ];
 
       home.modules = with inputs; [
@@ -62,5 +62,7 @@
       snowfall = {
         namespace = "dotfiles";
       };
+
+      outputs-builder = channels: {formatter = channels.nixpkgs.alejandra;};
     };
 }
