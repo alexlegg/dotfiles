@@ -10,6 +10,7 @@ in {
     dotfiles = {
       alt-tab-macos.enable = true;
       apps.enable = true;
+      defaults.enable = true;
       diff-so-fancy.enable = true;
       fd.enable = true;
       fzf.enable = true;
