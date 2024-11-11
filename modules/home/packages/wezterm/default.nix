@@ -92,7 +92,7 @@ in {
     '';
 
     programs.zsh.initExtra = ''
-      path+=('/Applications/Nix User Apps/WezTerm.app/Contents/MacOS')
+      path=('/Applications/Nix User Apps/WezTerm.app/Contents/MacOS' $path)
       export PATH
     '';
   };
