@@ -27,6 +27,9 @@ in {
         "com.apple.trackpad.forceClick" = false;
         # Tap to click
         "com.apple.mouse.tapBehavior" = 1;
+
+        # Dark mode
+        AppleInterfaceStyle = "Dark";
       };
       "com.apple.Finder" = {
         # List view as default
