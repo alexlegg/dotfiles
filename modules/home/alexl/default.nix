@@ -23,6 +23,7 @@ in {
       git.enable = true;
       lldb-init.enable = true;
       neovim.enable = true;
+      p10k-config.enable = true;
       rectangle.enable = true;
       ripgrep.enable = true;
       tree.enable = true;
