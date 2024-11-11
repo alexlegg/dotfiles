@@ -20,6 +20,13 @@ in {
         NSAutomaticPeriodSubstitutionEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
         NSTableViewDefaultSizeMode = 1;
+
+        # Scroll in the correct direction
+        "com.apple.swipescrolldirection" = false;
+        # Disable force click
+        "com.apple.trackpad.forceClick" = false;
+        # Tap to click
+        "com.apple.mouse.tapBehavior" = 1;
       };
       "com.apple.Finder" = {
         # List view as default
