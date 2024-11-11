@@ -13,6 +13,7 @@ in {
   config = mkIf cfg.enable {
     dotfiles = {
       pam-reattach.enable = true;
+      wezterm-path.enable = true;
     };
   };
 }
