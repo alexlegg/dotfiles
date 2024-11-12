@@ -19,10 +19,11 @@ in {
     programs.zsh = {
       enable = true;
       history = {
-        append = true;
+        append = false;
         ignoreAllDups = true;
         extended = true;
         size = 1000000000;
+        share = false;
       };
       initExtraBeforeCompInit = ''
         source ${powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
@@ -52,6 +53,9 @@ in {
 
         # Allow comments
         setopt interactivecomments
+
+        # Append commands history immediately
+        setopt INC_APPEND_HISTORY
       '';
       shellAliases = {
         less = "less -i";
