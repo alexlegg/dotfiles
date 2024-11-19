@@ -29,6 +29,25 @@ in {
           trustctime = true;
         };
         init.defaultBranch = "main";
+        rebase = {
+          updateRefs = true;
+        };
+
+        # Diff-so-fancy
+        core.pager = "diff-so-fancy | less --tabs=4 -RF";
+        interactive.diffFilter = "diff-so-fancy --patch";
+        color.ui = true;
+        color.diff-highlight.oldNormal = "red bold";
+        color.diff-highlight.oldHighlight = "red bold 52";
+        color.diff-highlight.newNormal = "green bold";
+        color.diff-highlight.newHighlight = "green bold 22";
+        color.diff.meta = "11";
+        color.diff.frag = "magenta bold";
+        color.diff.func = "146 bold";
+        color.diff.commit = "yellow bold";
+        color.diff.old = "red bold";
+        color.diff.new = "green bold";
+        color.diff.whitespace = "red reverse";
       };
 
       ignores = [
