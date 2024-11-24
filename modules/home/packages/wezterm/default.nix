@@ -87,6 +87,16 @@ in {
           search_mode = search_mode,
       }
 
+      -- SSH domains
+
+      config.ssh_domains = {
+          {
+              name = "smough",
+              remote_address = "smough",
+              username = "alexl",
+          },
+      }
+
       -- and finally, return the configuration to wezterm
       return config
     '';
