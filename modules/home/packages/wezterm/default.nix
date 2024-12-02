@@ -94,6 +94,7 @@ in {
               name = "smough",
               remote_address = "smough",
               username = "alexl",
+              remote_wezterm_path = '/Applications/Nix\\ User\\ Apps/WezTerm.app/Contents/MacOS/wezterm',
           },
       }
 
