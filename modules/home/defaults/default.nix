@@ -48,6 +48,7 @@ in {
           "/Applications/Nix User Apps/WezTerm.app"
           "/Applications/System Settings.app"
         ];
+        mru-spaces = false;
       };
     };
   };
