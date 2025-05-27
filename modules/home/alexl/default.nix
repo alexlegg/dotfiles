@@ -26,6 +26,7 @@ in {
       p10k-config.enable = true;
       rectangle.enable = true;
       ripgrep.enable = true;
+      rustup.enable = true;
       tree.enable = true;
       vscode.enable = true;
       zsh.enable = true;
