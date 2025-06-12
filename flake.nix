@@ -40,7 +40,6 @@
   outputs = inputs:
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
-
       src = ./.;
 
       channels-config = {
@@ -51,7 +50,7 @@
         morlana.overlays.default
       ];
 
-      home.modules = with inputs; [
+      homes.modules = with inputs; [
         nixvim.homeManagerModules.nixvim
       ];
 
