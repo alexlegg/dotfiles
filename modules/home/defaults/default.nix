@@ -39,15 +39,6 @@ in {
         target = "clipboard";
       };
       dock = {
-        persistent-apps = [
-          "/Applications/Safari.app"
-          "/Applications/Mail.app"
-          "/Applications/Calendar.app"
-          # "/Applications/Google Chrome.app"
-          # Obsidian here?
-          "/Applications/Nix User Apps/WezTerm.app"
-          "/Applications/System Settings.app"
-        ];
         mru-spaces = false;
       };
     };
