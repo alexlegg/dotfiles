@@ -5,14 +5,14 @@
 }:
 stdenvNoCC.mkDerivation rec {
   pname = "wezterm";
-  version = "20241129-152148-4906789a";
+  version = "WezTerm-macos-20250622-064717-2b656cb5";
 
 
   src = fetchzip {
     #url = "https://github.com/wez/wezterm/releases/download/${version}/WezTerm-macos-${version}.zip";
     # Get the nightly instead
     url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-macos-nightly.zip";
-    hash = "sha256-TKaMPZYJ4npL41FxS6la8S+BxLw2EUEJ9LdDkGvJ7BE=";
+    hash = "sha256-MIFSz10NcvBg/vMSGAjH8Vgt/yrWIW0fqpLCHUpOyVY=";
   };
 
   installPhase = ''
