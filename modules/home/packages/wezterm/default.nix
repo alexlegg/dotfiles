@@ -102,6 +102,12 @@ in {
               username = "alexl",
               remote_wezterm_path = '/Applications/Nix\\ User\\ Apps/WezTerm.app/Contents/MacOS/wezterm',
           },
+          {
+              name = "harrow",
+              remote_address = "harrow",
+              username = "alexl",
+              remote_wezterm_path = '/Applications/Nix\\ User\\ Apps/WezTerm.app/Contents/MacOS/wezterm',
+          },
       }
 
       -- and finally, return the configuration to wezterm
