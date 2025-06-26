@@ -28,7 +28,7 @@ in {
       ripgrep.enable = true;
       rustup.enable = true;
       tree.enable = true;
-      vscode.enable = true;
+      #vscode.enable = true;
       zsh.enable = true;
       wezterm.enable = true;
     };

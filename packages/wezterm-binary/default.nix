@@ -12,7 +12,7 @@ stdenvNoCC.mkDerivation rec {
     #url = "https://github.com/wez/wezterm/releases/download/${version}/WezTerm-macos-${version}.zip";
     # Get the nightly instead
     url = "https://github.com/wez/wezterm/releases/download/nightly/WezTerm-macos-nightly.zip";
-    hash = "sha256-MIFSz10NcvBg/vMSGAjH8Vgt/yrWIW0fqpLCHUpOyVY=";
+    hash = "sha256-5Ycm1twA1XGHwfaB+cbEsc3CJlcIkT3mwt74UM0xcCc=";
   };
 
   installPhase = ''
