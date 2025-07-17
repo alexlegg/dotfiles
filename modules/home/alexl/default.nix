@@ -21,6 +21,7 @@ in {
       fd.enable = true;
       fzf.enable = true;
       git.enable = true;
+      git-lfs.enable = true;
       lldb-init.enable = true;
       neovim.enable = true;
       p10k-config.enable = true;
