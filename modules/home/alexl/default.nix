@@ -30,6 +30,7 @@ in {
       rustup.enable = true;
       tree.enable = true;
       #vscode.enable = true;
+      yq.enable = true;
       zsh.enable = true;
       wezterm.enable = true;
     };
