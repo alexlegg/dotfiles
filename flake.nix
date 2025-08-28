@@ -31,9 +31,8 @@
     # NixVim configures neovim from inside nix.
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nix-darwin.follows = "darwin";
-      inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.nixpkgs.follows = "nixpkgs";
+      #inputs.flake-parts.url = "github:hercules-ci/flake-parts";
     };
   };
 
@@ -51,7 +50,7 @@
       ];
 
       homes.modules = with inputs; [
-        nixvim.homeManagerModules.nixvim
+        nixvim.homeModules.nixvim
       ];
 
       systems.modules.darwin = with inputs; [
