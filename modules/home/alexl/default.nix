@@ -25,6 +25,7 @@ in {
       lldb-init.enable = true;
       neovim.enable = true;
       p10k-config.enable = true;
+      python.enable = true;
       rectangle.enable = true;
       ripgrep.enable = true;
       rustup.enable = true;
