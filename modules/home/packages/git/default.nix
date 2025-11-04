@@ -56,6 +56,7 @@ in {
         "*.code-workspace"
         "build/"
         ".DS_Store"
+        "compile_commands.json"
       ];
     };
   };
