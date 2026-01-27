@@ -57,6 +57,7 @@ in {
         "build/"
         ".DS_Store"
         "compile_commands.json"
+        "default.profraw"
       ];
     };
   };

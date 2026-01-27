@@ -24,6 +24,7 @@ in {
       git-lfs.enable = true;
       lldb-init.enable = true;
       neovim.enable = true;
+      ninja.enable = true;
       p10k-config.enable = true;
       python.enable = true;
       rectangle.enable = true;
