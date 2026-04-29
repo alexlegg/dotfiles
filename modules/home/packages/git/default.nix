@@ -55,9 +55,11 @@ in {
         ".vscode"
         "*.code-workspace"
         "build/"
+        ".build/"
         ".DS_Store"
         "compile_commands.json"
         "default.profraw"
+        ".claude/"
       ];
     };
   };
