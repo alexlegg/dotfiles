@@ -25,12 +25,14 @@ in {
       lldb-init.enable = true;
       neovim.enable = true;
       ninja.enable = true;
+      ntfy-sh.enable = true;
       p10k-config.enable = true;
-      python.enable = true;
+      #python.enable = true;
       rectangle.enable = true;
       ripgrep.enable = true;
       rustup.enable = true;
       tree.enable = true;
+      uv.enable = true;
       yq.enable = true;
       vscode.enable = true;
       zsh.enable = true;
