@@ -25,7 +25,7 @@ in {
       lldb-init.enable = true;
       neovim.enable = true;
       ninja.enable = true;
-      ntfy-sh.enable = true;
+      #ntfy-sh.enable = true;
       p10k-config.enable = true;
       #python.enable = true;
       rectangle.enable = true;

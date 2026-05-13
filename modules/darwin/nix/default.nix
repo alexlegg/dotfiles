@@ -30,7 +30,6 @@ in {
       registry.nixpkgs.flake = inputs.nixpkgs;
     };
 
-    services.nix-daemon.enable = true;
     # programs.zsh.enable = true;
   };
 }

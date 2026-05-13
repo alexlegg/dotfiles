@@ -9,7 +9,7 @@
   apps = pkgs.buildEnv {
     name = "home-manager-apps";
     paths = config.home.packages;
-    pathsToLink = "/Applications";
+    pathsToLink = ["/Applications"];
   };
   cfg = config.dotfiles.apps;
   dag = inputs.home-manager.lib.hm.dag;
