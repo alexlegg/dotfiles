@@ -3,7 +3,6 @@
   lib,
   morlana,
   stdenvNoCC,
-  system,
   writeTextFile,
   zsh,
   flake ? "~/.dotfiles",
@@ -16,22 +15,32 @@
 
   args =
     [
-      "switch"
-      "--no-confirm"
       "--flake ${flake}"
       "--attr darwinConfigurations.$(_get_hostname)"
+      "--"
+      "--accept-flake-config"
+      "--allow-unsafe-native-code-during-evaluation"
+      "--option narinfo-cache-negative-ttl 0"
     ]
-    ++ (builtins.map (v: "--extra-build-flags='${v}'") (lib.flatten overrides));
+    ++ (lib.flatten overrides);
 in
   writeTextFile {
     destination = "/bin/zu";
     executable = true;
     meta = {
       platforms = ["aarch64-darwin" "x86_64-darwin"];
+      maintainers = [
+        inputs.self.lib.maintainers.matt
+      ];
     };
     name = "zu";
     text = ''
       #!${zsh}/bin/zsh
+      action=''${1:-"switch"}
+      confirm=
+      if (( $# > 0 )); then
+        shift
+      fi
 
       # lowercase hostname
       function _get_hostname() {
@@ -39,12 +48,19 @@ in
       }
 
       function _pre_sudo() {
-        sudo -v -p "sudo password: "
+        [[ "$action" == "switch" ]] && sudo -v -p "sudo password: "
+        true
       }
 
-      echo "🏡 building: $(_get_hostname)"
+      if [[ "$action" == "switch" ]]; then
+        confirm="--no-confirm"
+      fi
+
+      echo "🏡 ''${action}ing: $(_get_hostname)"
       _pre_sudo && \
         ${morlana}/bin/morlana \
-          ${builtins.concatStringsSep " \\\n    " args}
+          $action $confirm \
+          ${builtins.concatStringsSep " \\\n    " args} \
+          $*
     '';
   }

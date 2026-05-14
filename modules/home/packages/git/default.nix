@@ -15,15 +15,18 @@ in {
     programs.git = {
       enable = true;
       lfs.enable = true;
-      userName = "Alex Legg";
-      userEmail = "alex@legg.info";
 
-      aliases = {
-        "currtag" = "describe --abbrev=0";
-        "ol" = "log --pretty=format:'%C(yellow)%h %Cblue%an%Cgreen%d %Creset%s' --date=short";
-      };
+      settings = {
+        user = {
+          name = "Alex Legg";
+          email = ["alex@legg.info"];
+        };
 
-      extraConfig = {
+        alias = {
+          "currtag" = "describe --abbrev=0";
+          "ol" = "log --pretty=format:'%C(yellow)%h %Cblue%an%Cgreen%d %Creset%s' --date=short";
+        };
+
         core = {
           # https://www.git-tower.com/blog/make-git-rebase-safe-on-osx/#
           trustctime = true;
