@@ -22,7 +22,6 @@ in {
       fzf.enable = true;
       git.enable = true;
       git-lfs.enable = true;
-      ice-bar.enable = true;
       lldb-init.enable = true;
       neovim.enable = true;
       ninja.enable = true;
