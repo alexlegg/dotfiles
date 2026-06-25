@@ -63,6 +63,7 @@ in {
         "compile_commands.json"
         "default.profraw"
         ".claude/"
+        ".cache/"
       ];
     };
   };
