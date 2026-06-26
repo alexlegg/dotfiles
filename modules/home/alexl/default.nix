@@ -20,6 +20,7 @@ in {
       diff-so-fancy.enable = true;
       fd.enable = true;
       fzf.enable = true;
+      ghostty.enable = true;
       git.enable = true;
       git-lfs.enable = true;
       lldb-init.enable = true;
@@ -31,6 +32,7 @@ in {
       rectangle.enable = true;
       ripgrep.enable = true;
       rustup.enable = true;
+      tmux.enable = true;
       tree.enable = true;
       uv.enable = true;
       yq.enable = true;
