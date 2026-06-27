@@ -35,6 +35,10 @@ in {
         # focus events for vim/neovim autoread
         set -g focus-events on
 
+        # pass extended key sequences (Shift+Enter, etc.) through to apps
+        set -g extended-keys on
+        set -as terminal-features ",*:extkeys"
+
         # splits inherit current pane's working directory
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"

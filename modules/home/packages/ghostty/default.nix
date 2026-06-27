@@ -23,7 +23,7 @@ in {
       theme = Dracula
 
       scrollback-limit = 100000000
-      audible-bell = false
+      bell-features = no-system, no-audio
 
       shell-integration = zsh
       shell-integration-features = cursor,sudo,title
