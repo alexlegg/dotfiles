@@ -25,17 +25,14 @@ in {
       scrollback-limit = 100000000
       audible-bell = false
 
-      macos-titlebar-style = tabs
-
       shell-integration = zsh
       shell-integration-features = cursor,sudo,title
 
-      # Cmd-T opens a new tab in the home directory (parity with wezterm)
-      keybind = super+t=new_tab_with_default_command
-
-      # Move tabs left/right (parity with wezterm Ctrl+Shift+,/.)
-      keybind = ctrl+shift+comma=move_tab:-1
-      keybind = ctrl+shift+period=move_tab:1
+      # Forward tab-style shortcuts to tmux instead of using ghostty's native tabs.
+      # Each sends the tmux prefix (C-Space = \x00) followed by the action key.
+      keybind = super+t=text:\x00c
+      keybind = ctrl+tab=text:\x00n
+      keybind = ctrl+shift+tab=text:\x00p
     '';
   };
 }

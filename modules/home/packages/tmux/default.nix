@@ -28,6 +28,10 @@ in {
         # renumber windows when one is closed
         set -g renumber-windows on
 
+        # auto-name windows after the current directory
+        set -g automatic-rename on
+        set -g automatic-rename-format '#{b:pane_current_path}'
+
         # focus events for vim/neovim autoread
         set -g focus-events on
 
@@ -37,6 +41,14 @@ in {
 
         # reload config
         bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded"
+
+        # status bar — Dracula palette, transparent background
+        set -g status-style "bg=default fg=#6272a4"
+        set -g status-left  "#[fg=#bd93f9,bold] #S "
+        set -g status-right "#[fg=#6272a4]#h "
+        set -g status-left-length 30
+        set -g window-status-format         " #I:#W "
+        set -g window-status-current-format "#[bg=#44475a,fg=#f8f8f2,bold] #I:#W "
       '';
     };
   };
