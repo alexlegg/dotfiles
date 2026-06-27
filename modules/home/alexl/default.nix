@@ -16,6 +16,7 @@ in {
       alejandra.enable = true;
       alt-tab-macos.enable = true;
       apps.enable = true;
+      claude-code.enable = true;
       defaults.enable = true;
       diff-so-fancy.enable = true;
       fd.enable = true;
