@@ -51,8 +51,11 @@ in {
         set -g status-left  "#[fg=#bd93f9,bold] #S "
         set -g status-right "#[fg=#6272a4]#h "
         set -g status-left-length 30
-        set -g window-status-format         " #I:#W "
-        set -g window-status-current-format "#[bg=#44475a,fg=#f8f8f2,bold] #I:#W "
+        # fixed-width tabs: truncate window name to 10 chars (#{=10:}) then
+        # right-pad to 10 (#{p-10:}) so every tab is the same width. Note: the
+        # #W alias isn't expanded inside these modifiers, so use window_name.
+        set -g window-status-format         " #I:#{p-10:#{=10:window_name}} "
+        set -g window-status-current-format "#[bg=#44475a,fg=#f8f8f2,bold] #I:#{p-10:#{=10:window_name}} "
       '';
     };
   };
