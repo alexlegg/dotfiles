@@ -24,6 +24,7 @@ in {
       ghostty.enable = true;
       git.enable = true;
       git-lfs.enable = true;
+      just.enable = true;
       lldb-init.enable = true;
       neovim.enable = true;
       ninja.enable = true;
