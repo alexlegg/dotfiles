@@ -26,7 +26,7 @@ in {
       bell-features = no-system, no-audio
 
       shell-integration = zsh
-      shell-integration-features = cursor,sudo,title
+      shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
 
       # Forward tab-style shortcuts to tmux instead of using ghostty's native tabs.
       # Each sends the tmux prefix (C-Space = \x00) followed by the action key.
