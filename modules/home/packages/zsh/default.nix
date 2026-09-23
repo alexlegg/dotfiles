@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption mkOption;
+  inherit (lib) mkIf mkEnableOption mkOption mkMerge mkOrder;
   cfg = config.dotfiles.zsh;
   fzt = pkgs.zsh-fzf-tab;
   powerlevel10k = pkgs.zsh-powerlevel10k;
@@ -25,38 +25,40 @@ in {
         size = 1000000000;
         share = false;
       };
-      initExtraBeforeCompInit = ''
-        source ${powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-      '';
-      initExtra = ''
-        # source zsh-vi-mode
-        # Initialise now (when sourcing) so we can override some keybings for
-        # fzf and fzf-tab.
-        ZVM_INIT_MODE=sourcing
-        source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-        ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+      initContent = mkMerge [
+        (mkOrder 550 ''
+          source ${powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+          [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+        '')
+        ''
+          # source zsh-vi-mode
+          # Initialise now (when sourcing) so we can override some keybings for
+          # fzf and fzf-tab.
+          ZVM_INIT_MODE=sourcing
+          source ${zvm}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+          ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 
-        # vim mode
-        bindkey -v
+          # vim mode
+          bindkey -v
 
-        # source fzf
-        # enableZshIntegrations is turned off in fzf so we can order this after
-        # the vim mode plugin.
-        source <(fzf --zsh)
+          # source fzf
+          # enableZshIntegrations is turned off in fzf so we can order this after
+          # the vim mode plugin.
+          source <(fzf --zsh)
 
-        # source fzf-tab
-        source ${fzt}/share/fzf-tab/fzf-tab.plugin.zsh
+          # source fzf-tab
+          source ${fzt}/share/fzf-tab/fzf-tab.plugin.zsh
 
-        # source zsh-title-update
-        source ${ztu}/share/zsh-title-update/zsh-title-update.plugin.zsh
+          # source zsh-title-update
+          source ${ztu}/share/zsh-title-update/zsh-title-update.plugin.zsh
 
-        # Allow comments
-        setopt interactivecomments
+          # Allow comments
+          setopt interactivecomments
 
-        # Append commands history immediately
-        setopt INC_APPEND_HISTORY
-      '';
+          # Append commands history immediately
+          setopt INC_APPEND_HISTORY
+        ''
+      ];
       shellAliases = {
         less = "less -i";
         ls = "ls --color=auto";

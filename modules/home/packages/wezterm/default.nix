@@ -114,7 +114,7 @@ in {
       return config
     '';
 
-    programs.zsh.initExtra = ''
+    programs.zsh.initContent = ''
       path=('/Applications/Nix User Apps/WezTerm.app/Contents/MacOS' $path)
       export PATH
     '';

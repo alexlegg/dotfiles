@@ -4,6 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
+    # claude-code tracks the latest npm release (nixpkgs lags well behind).
+    claude-code = {
+      url = "github:sadjow/claude-code-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nix-darwin contains nix modules for darwin. Everything is based on this.
     darwin = {
       url = "github:lnl7/nix-darwin";
@@ -47,6 +53,7 @@
 
       overlays = with inputs; [
         morlana.overlays.default
+        (final: prev: {claude-code = claude-code.packages.${final.stdenv.hostPlatform.system}.default;})
       ];
 
       homes.modules = with inputs; [
