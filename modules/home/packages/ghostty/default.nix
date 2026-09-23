@@ -25,6 +25,13 @@ in {
       scrollback-limit = 100000000
       bell-features = no-system, no-audio
 
+      # Always start new windows and tabs in ~ rather than the focused one's cwd.
+      # tmux mirrors this with `bind c new-window -c ~`, since super+t below
+      # opens a tmux window rather than a ghostty tab.
+      working-directory = home
+      window-inherit-working-directory = false
+      tab-inherit-working-directory = false
+
       shell-integration = zsh
       shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
 

@@ -43,6 +43,10 @@ in {
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
 
+        # new windows always start in ~, mirroring ghostty's
+        # tab-inherit-working-directory = false (Cmd+T sends prefix + c)
+        bind c new-window -c ~
+
         # reload config
         bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded"
 
