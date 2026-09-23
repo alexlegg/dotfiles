@@ -16,6 +16,12 @@ in {
       ghostty-bin
     ];
 
+    # macOS's /bin/zsh looks up $TERM once at startup, before /etc/zshenv adds
+    # ~/.nix-profile/share/terminfo to TERMINFO_DIRS, and never retries. Over
+    # ssh (TERM=xterm-ghostty) that leaves zsh without a terminal definition.
+    # ~/.terminfo is searched from the start, so link the entry there too.
+    home.file.".terminfo".source = "${pkgs.ghostty-bin.terminfo}/share/terminfo";
+
     xdg.configFile."ghostty/config".text = ''
       font-family = JetBrains Mono
       font-size = 15
