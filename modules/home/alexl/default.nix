@@ -34,6 +34,7 @@ in {
       rectangle.enable = true;
       ripgrep.enable = true;
       rustup.enable = true;
+      tea.enable = true;
       tmux.enable = true;
       tree.enable = true;
       uv.enable = true;
