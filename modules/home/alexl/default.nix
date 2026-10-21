@@ -35,6 +35,7 @@ in {
       ripgrep.enable = true;
       rustup.enable = true;
       tea.enable = true;
+      tio.enable = true;
       tmux.enable = true;
       tree.enable = true;
       uv.enable = true;
