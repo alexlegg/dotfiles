@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkIf mkEnableOption mkOption;
+  inherit (lib) mkIf mkOption;
   cfg = config.dotfiles.updater;
 in {
   options.dotfiles.updater = {
@@ -18,6 +18,12 @@ in {
       type = lib.types.str;
     };
 
+    attr = mkOption {
+      default = null;
+      type = lib.types.nullOr lib.types.str;
+      description = "Optional flake attribute name (defaults to host/user auto-detection).";
+    };
+
     overrides = mkOption {
       default = {};
       type = with lib.types; attrsOf str;
@@ -25,12 +31,15 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [
-      (dotfiles.zu.override {
-        inherit (cfg) flake;
-        flakes = cfg.overrides;
-      })
-      morlana
-    ];
+    home.packages = with pkgs;
+      [
+        (dotfiles.zu.override {
+          inherit (cfg) flake attr;
+          flakes = cfg.overrides;
+        })
+      ]
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+        morlana
+      ];
   };
 }

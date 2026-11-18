@@ -30,7 +30,7 @@ in {
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf (pkgs.stdenv.hostPlatform.isDarwin && cfg.enable) {
     # disable the default app linking directory
     home.file."Applications/Home Manager Apps".enable = false;
 

@@ -52,8 +52,11 @@
       };
 
       overlays = with inputs; [
-        morlana.overlays.default
-        (final: prev: {claude-code = claude-code.packages.${final.stdenv.hostPlatform.system}.default;})
+        (final: prev:
+          if prev.stdenv.hostPlatform.isDarwin
+          then morlana.overlays.default final prev
+          else {})
+        (final: prev: {claude-code = claude-code.packages.${prev.stdenv.hostPlatform.system}.default;})
       ];
 
       homes.modules = with inputs; [

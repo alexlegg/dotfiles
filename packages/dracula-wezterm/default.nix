@@ -21,6 +21,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
+    platforms = lib.platforms.darwin;
     maintainers = [
       inputs.self.lib.maintainers.alexl
     ];

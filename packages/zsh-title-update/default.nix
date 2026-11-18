@@ -20,8 +20,8 @@ stdenvNoCC.mkDerivation {
   meta = {
     platforms = [
       "aarch64-darwin"
-      # "aarch64-linux"
-      # "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-linux"
     ];
     maintainers = [
       inputs.self.lib.maintainers.alexl

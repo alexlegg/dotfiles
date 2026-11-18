@@ -11,7 +11,7 @@ in {
     enable = mkEnableOption "defaults";
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf (pkgs.stdenv.hostPlatform.isDarwin && cfg.enable) {
     targets.darwin.defaults = {
       NSGlobalDomain = {
         # turn off all the auto corrects
