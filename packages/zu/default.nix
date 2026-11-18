@@ -31,7 +31,6 @@
   linuxArgs =
     [
       ''--flake "$target"''
-      "--option narinfo-cache-negative-ttl 0"
     ]
     ++ (lib.mapAttrsToList
       (n: v: "--override-input ${lib.escapeShellArg n} ${lib.escapeShellArg v}")
@@ -93,7 +92,18 @@ in
         fi
 
         flake_ref=${lib.escapeShellArg flake}
-        flake_ref="''${flake_ref/#\~/$HOME}"
+        extra_args=()
+        if [[ "$flake_ref" == path:* ]]; then
+          flake_path="''${flake_ref#path:}"
+          flake_path="''${flake_path/#\~/$HOME}"
+          flake_path="''${flake_path:A}"
+          flake_ref="path:$flake_path"
+          if [[ ! -w "$flake_path" ]]; then
+            extra_args+=(--no-write-lock-file)
+          fi
+        else
+          flake_ref="''${flake_ref/#\~/$HOME}"
+        fi
         ${
           if attr != null
           then ''target="''${flake_ref}#${attr}"''
@@ -104,6 +114,7 @@ in
         exec ${home-manager}/bin/home-manager \
           "$action" \
           ${lib.concatStringsSep " \\\n          " linuxArgs} \
+          "''${extra_args[@]}" \
           "$@"
       '';
   }
